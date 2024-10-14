@@ -1,0 +1,4 @@
+(defun same-shape-tree (a b)
+  "Are two trees the same except for the leaves?"
+  (labels ((true (&rest ignore) (princ ignore) t))
+    (tree-equal a b :test #'true)))

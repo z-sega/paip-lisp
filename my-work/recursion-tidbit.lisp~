@@ -1,0 +1,6 @@
+(defun len11 (l*)
+  (flet ((defun len/acc (l0* acc)
+	   (if (null l0*)
+	       acc
+	       (len/acc (rest l0*) (incf acc)))))
+    (len/acc l* 0)))

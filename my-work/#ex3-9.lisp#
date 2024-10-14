@@ -1,0 +1,3 @@
+(defun len (x*)
+  "Compute length of list x*."
+  (reduce #'(lambda (x) ()) x* :initial-value 0))

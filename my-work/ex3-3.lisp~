@@ -1,0 +1,19 @@
+;;; Write a function that will print an expression in
+;;; dotted pair notation. Use the built-in function
+;;; princ to print each component of the expression.
+
+;;; An Expr is one of:
+;;; - number
+;;; - symbol
+;;; - string
+;;; - (cons Expr Expr*)
+
+;;; Expr -> 
+(defun to-dp-notation (expr)
+  "Prints expr in dotted pair notation."
+  (cond
+    ((numberp expr) expr)
+    ((symbolp expr) expr)
+    ((stringp expr) expr)
+    ((consp expr) (cons (to-dp-notation (first expr)) (to-dp-notation (rest expr))))
+    ((null expr) nil)))

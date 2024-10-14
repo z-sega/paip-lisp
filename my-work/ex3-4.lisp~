@@ -1,0 +1,25 @@
+;;; Write a function that, like the regular print function,
+;;; will print an expression in dotted pair notation when
+;;; necessary but will use normal list notation when
+;;; possible.
+
+
+;;; An Expr is one of:
+;;; - atom
+;;; - (cons Expr Expr*)
+
+;;; Expr -> Expr
+(defun like-print (expr)
+  "Attempt to print expr in dotted pair notation."
+  (cond
+    ((atom expr) (princ expr))
+    (t (princ "'(")
+       (like-print (first expr))
+       (like-print-rest (rest expr))
+       (princ ")"))))
+
+(defun like-print-rest (rst)
+  (if (consp rst)
+      (princ " ")
+      (progn (princ " . ")
+	     (princ rst))))

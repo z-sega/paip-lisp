@@ -1,0 +1,6 @@
+(defun atomprint (exp &optional (depth 0))
+  "Print each atom in exp, along with its depth of nesting."
+  (if (atom exp)
+      (format t "~&ATOM: ~a, DEPTH ~d" exp depth)
+      (dolist (element exp)
+	(atomprint element (+ depth 1)))))

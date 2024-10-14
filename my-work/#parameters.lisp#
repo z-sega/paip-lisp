@@ -1,0 +1,17 @@
+(defun math-quiz (&key (op '+) (range 100) (n 10))
+  "Ask the user a series of math problems."
+  (dotimes (i n)
+    (problem (random range) op (random range))))
+
+(defun problem (x op y)
+  "Ask a math problem, read a reply, and say if it is correct."
+  (format t "~&How much is ~d ~a ~d?" x op y)
+  (if (eql (read) (funcall op x y))
+      (princ "Correct!")
+      (princ "Sorry, that's not right.")))
+
+(defun my-complement (fn)
+  "If FN returns y, then (complement FN) returns (not y)."
+  ;; This function is built-in in ANSI Common Lisp,
+  ;; but is defined here for those with non-ANSI compilers.
+  #'(lambda (&rest args) (not (apply fn args))))

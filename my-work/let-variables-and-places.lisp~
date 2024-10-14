@@ -1,0 +1,6 @@
+(defstruct player (score 0) (wins 0))
+
+(defvar p1 (make-player 3))
+(defvar p2 (make-player 1))
+(defvar p3 (make-player 0))
+
